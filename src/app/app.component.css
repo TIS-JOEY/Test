@@ -1,0 +1,24 @@
+:host ::ng-deep .p-menu {
+    border: none !important;
+}
+
+::ng-deep .p-card-body :hover {
+    cursor: pointer;
+}
+
+.categoryName {
+    color: #0092FD;
+}
+
+td {
+    padding: 5px;
+}
+
+:host ::ng-deep .p-card :hover {
+    color: #737373;
+}
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+    border: none;
+    font-size: 14px;
+}

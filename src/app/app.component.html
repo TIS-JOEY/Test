@@ -1,12 +1,52 @@
-<h5>Single</h5>
-<p-listbox [options]="cities" [(ngModel)]="selectedCity" optionLabel="name" [style]="{'width':'15rem'}"></p-listbox>
+<div>
+    <p-tabMenu [model]="apList" [activeItem]="activeAp"></p-tabMenu>
+</div>
 
-<h5>Advanced with Templating, Filtering and Multiple Selection</h5>
-<p-listbox [options]="countries" [(ngModel)]="selectedCountries" [metaKeySelection]="false" [checkbox]="true" [filter]="true" [multiple]="true" optionLabel="name" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
-    <ng-template let-country pTemplate="item">
-        <div class="country-item">
-            <img src="assets/showcase/images/demo/flag/flag_placeholder.png" [class]="'flag flag-' + country.value.code.toLowerCase()" />
-            <div>{{country.value.name}}</div>
+<div class="p-grid nested-grid">
+    <div class="p-col-2">
+        <div class="box box-stretched p-shadow-24">
+            <p-menu [model]="products"></p-menu>
         </div>
-    </ng-template>
-</p-listbox>
+    </div>
+    <div class="p-col-8">
+        <div class="p-grid">
+            <div class="p-col-4" *ngFor="let category of categories">
+                <div class="box p-shadow-24">
+                    <p-card styleClass="p-card-shadow" header="{{category.title}}" [style]="{width: '360px'}">
+                        <p-header><span class="categoryName">Category</span></p-header>
+                        <p>{{category.description}}</p>
+                        <ng-template pTemplate="footer">
+                            <img alt="Card" style="width: 360px;" src="assets/img/usercard.png">
+                        </ng-template>
+                    </p-card>
+                </div>
+            </div>
+        </div>
+        <div class="p-grid">
+            <div class="p-col-4" *ngFor="let function of functions">
+                <div class="box p-shadow-24">
+                    <p-card styleClass="p-card-shadow" [style]="{width: '360px'}">
+                        <table>
+                            <tr>
+                                <td rowspan="2">
+                                    <i class="pi {{function.icon}}" style="font-size: 30px"></i>
+                                </td>
+                                <td>
+                                    <div>
+                                        {{function.title}}
+                                    </div>
+                                    <div>
+                                        {{function.description}}
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </p-card>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-col-2">
+
+    </div>
+</div>
