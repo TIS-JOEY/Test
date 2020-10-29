@@ -2,6 +2,10 @@
     <p-tabMenu [model]="apList" [activeItem]="activeAp"></p-tabMenu>
 </div>
 
+<div *ngIf="showFunctionTree">
+    <p-tabMenu [model]="functionTreeMenuOption" [activeItem]="activeFunctionTreeOption"></p-tabMenu>
+</div>
+
 <div class="p-grid nested-grid">
     <div class="p-col-2">
         <div class="box box-stretched p-shadow-24">

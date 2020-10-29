@@ -23,10 +23,15 @@ export class AppComponent implements OnInit {
   public selectedProduct: Product;
   public categories: Category[] = [];
   public functions: Function[] = [];
+  public showFunctionTree: boolean = false;
+  public functionTreeMenuOption: MenuItem[];
+  public activeFunctionTreeOption: MenuItem;
   
   ngOnInit(): void {
     this.apList = [
-      {label: '', icon: 'pi pi-th-large'},
+      {label: '', icon: 'pi pi-th-large', command: () => {
+        this.openFunctionTree();
+      }},
       {label: 'Part DCOP'},
       {label: 'LowYieldAnalysis'},
       {label: 'N5 DailyReport'},
@@ -35,6 +40,18 @@ export class AppComponent implements OnInit {
       {label: '+'}
   ];
   this.activeAp = this.apList[0];
+
+  this.functionTreeMenuOption = [
+    {
+      label: 'Function', icon: 'pi pi-apple', command: () => {
+        this.showFunctionTreeDropdown();
+      }
+    },
+    {
+      label: 'MyFavorite', icon: 'pi pi-chart-line'
+    }
+  ];
+  this.activeFunctionTreeOption = this.functionTreeMenuOption[0];
 
     this.products = [
       { label: 'IPOP', icon: 'pi pi-refresh', },
@@ -64,5 +81,13 @@ export class AppComponent implements OnInit {
       contrast: 90,
       sepia: 10,
   });
+  }
+
+  public openFunctionTree() {
+    this.showFunctionTree = true;
+  }
+
+  public showFunctionTreeDropdown() {
+    
   }
 }
