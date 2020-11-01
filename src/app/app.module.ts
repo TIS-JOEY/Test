@@ -14,11 +14,16 @@ import {CardModule} from 'primeng/card';
 import {MenuModule} from 'primeng/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TabMenuModule} from 'primeng/tabmenu';
+import {DragDropModule} from 'primeng/dragdrop';
+import { MyFavoriteComponent } from './components/my-favorite/my-favorite.component';
+import { ResizableDraggableComponent } from './components/resizable-draggable/resizable-draggable.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyFavoriteComponent,
+    ResizableDraggableComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -32,7 +37,8 @@ import {TabMenuModule} from 'primeng/tabmenu';
     TabViewModule,
     CardModule,
     MenuModule,
-    TabMenuModule
+    TabMenuModule,
+    DragDropModule
   ],
   exports: [],
   providers: [],

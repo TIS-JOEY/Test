@@ -26,6 +26,12 @@ export class AppComponent implements OnInit {
   public showFunctionTree: boolean = false;
   public functionTreeMenuOption: MenuItem[];
   public activeFunctionTreeOption: MenuItem;
+
+  availableProducts: Product[];
+    
+  selectedProducts: Product[];
+    
+  draggedProduct: Product;
   
   ngOnInit(): void {
     this.apList = [
@@ -90,4 +96,33 @@ export class AppComponent implements OnInit {
   public showFunctionTreeDropdown() {
     
   }
+
+  dragStart(event,product: Product) {
+    this.draggedProduct = product;
+}
+
+drop(event) {
+    if (this.draggedProduct) {
+        let draggedProductIndex = this.findIndex(this.draggedProduct);
+        this.selectedProducts = [...this.selectedProducts, this.draggedProduct];
+        this.availableProducts = this.availableProducts.filter((val,i) => i!=draggedProductIndex);
+        this.draggedProduct = null;
+    }
+}
+
+dragEnd(event) {
+    this.draggedProduct = null;
+}
+
+findIndex(product: Product) {
+  let index = -1;
+  for(let i = 0; i < this.availableProducts.length; i++) {
+      if (product.id === this.availableProducts[i].id) {
+          index = i;
+          break;
+      }
+  }
+  return index;
+}
+
 }
